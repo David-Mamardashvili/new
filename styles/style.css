@@ -166,6 +166,22 @@ button {
   font-size: 14px;
 }
 
+.card__preview {
+  position: relative;
+  overflow: clip;
+}
+
+.card__img {
+  width: 100%;
+  height: auto;
+}
+
+.card__label {
+  position: absolute;
+  top: 25px;
+  right: 11px;
+}
+
 .footer {
   padding-top: 54px;
   padding-bottom: 102px;
