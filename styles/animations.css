@@ -80,11 +80,11 @@
 
 @keyframes strelka {
   0% {
-    translate: 0;
+    translate: -4px;
   }
 
   100% {
-    translate: 4px;
+    translate: 0px;
   }
 }
 

@@ -73,10 +73,6 @@ button {
   margin-bottom: 25px;
 }
 
-.theme-menu__item {
-  
-}
-
 .theme-menu__button {
   background-color: transparent;
   border: none;
@@ -150,6 +146,7 @@ button {
 .card-button-section {
   display: flex;
   justify-content: flex-end;
+  gap: 12px;
 }
 
 .card__like-button {
@@ -164,11 +161,14 @@ button {
   line-height: 90%;
   font-family: var(--accent-font-family);
   font-size: 14px;
+  color: var(--themes-main-color);
 }
 
 .card__preview {
   position: relative;
   overflow: clip;
+  border-top: 2px solid var(--themes-main-color, #000);
+  border-bottom: 2px solid var(--themes-main-color, #000);
 }
 
 .card__img {
@@ -180,11 +180,61 @@ button {
   position: absolute;
   top: 25px;
   right: 11px;
+  opacity: 0.5;
+  mix-blend-mode: hard-light;
+  font-family: var(--accent-font-family);
+  font-size: 14px;
+  text-shadow:
+  -1px 0 var(--themes-background), 
+  0 1px var(--themes-background), 
+  1px 0 var(--themes-background), 
+  0 -1px var(--themes-background);
+}
+
+@supports((text-stroke: 1px var(--themes-background)) or (-webkit-text-stroke: 1px var(--themes-background))) {
+  .card__label {
+      -webkit-text-stroke: 1px var(--themes-background);
+      text-stroke: 1px var(--themes-background);
+      text-shadow: none;
+  }
+}
+
+.saturate {
+  filter: saturate(0.3);
+}
+
+.hue-rotate {
+  filter: hue-rotate(45deg);
+}
+
+.invert {
+  filter: invert(1);
+}
+
+.sepia {
+  filter: sepia(1);
+}
+
+.blur {
+  filter: blur(10px);
+}
+
+.hue-rotate-contrast {
+  filter: hue-rotate(90deg) contrast(0.5) ; 
+} 
+
+.hue-contrast-brightness {
+  filter: contrast(4) brightness(4);
 }
 
 .footer {
   padding-top: 54px;
   padding-bottom: 102px;
+}
+
+.icon {
+  height: 100px;
+  width: 100px;
 }
 
 .footer-button-section {
@@ -204,4 +254,55 @@ button {
   font-family: var(--accent-font-family);
 }
 
+#dialog-id {
+  padding: 30px 40px;
+  background-color: var(--themes-background);
+  border: 2px solid var(--themes-main-color);
+  margin: 0 auto;
+  max-width: 341px;
+  max-height: 195px;
+  position: fixed;
+  top: 30%;
+}
 
+#dialog-id::backdrop {
+  background-color: rgb(0 0 0 / 1);
+  backdrop-filter: blur(7px);
+}
+
+.dialog__icon {
+  height: 100px;
+  width: 100px;
+}
+
+.dialog__text {
+  line-height: 150%;
+  font-family: var(--accent-font-family);
+  font-size: 14px;
+  color: var(--themes-main-color);
+  text-transform: uppercase;
+}
+
+.dialog__button-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.dialog__title {
+  display: flex;
+}
+
+.dialog__button {
+  border: 1px solid var(--themes-main-color);
+  min-height: 38px;
+  padding: 9px 17px;
+}
+
+@media (min-width: 1440px) {
+  .card-menu__list {
+    gap: 54px;
+  }
+  .card__label {
+    right: 25px;
+  }
+}

@@ -11,7 +11,7 @@
     --wght-bold: 785;
     --gradient-color: #000;
     --gradient-color2: #007f0c;
-    --gradient-color3: #004306;
+    --gradient-color3: #004306; 
 }
 
 @media (prefers-color-scheme: dark) {
