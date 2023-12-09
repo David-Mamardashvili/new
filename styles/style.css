@@ -35,6 +35,32 @@ button {
   margin: 0;
 }
 
+.blend-btn {
+  position: relative;
+  overflow: clip;
+}
+
+.blend-btn__content {
+  color: var(--blend-content-color);
+  mix-blend-mode: difference;
+}
+
+.blend-btn::before {
+  position: absolute;
+  content: '';
+  inset: 0;
+  background-color: var(--themes-main-color);
+  /* transform: scaleX(0); */
+  /* transform-origin: left center; */
+  transform: translateX(-100%);
+  transition: transform .5s ease-in-out;
+}
+
+.blend-btn:hover::before {
+  /* transform: scaleX(1); */
+  transform: translateX(0);
+}
+
 .header {
   padding: 102px 0;
 }
@@ -53,6 +79,8 @@ button {
 .svg__html {
   fill: red;
 }
+
+
 
 .header__title {
   margin-top: 120px;
@@ -157,11 +185,13 @@ button {
   max-block-size: 38px;
 }
 
+
+
 .button__text {
   line-height: 90%;
   font-family: var(--accent-font-family);
   font-size: 14px;
-  color: var(--themes-main-color);
+
 }
 
 .card__preview {
@@ -172,6 +202,7 @@ button {
 }
 
 .card__img {
+  display: block;
   width: 100%;
   height: auto;
 }
@@ -233,8 +264,8 @@ button {
 }
 
 .icon {
-  height: 100px;
-  width: 100px;
+  height: 28px;
+  width: 28px;
 }
 
 .footer-button-section {
@@ -245,34 +276,42 @@ button {
 
 .footer-button {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  white-space: nowrap;
   gap: 8px;
+  padding: 15px 20px;
+  width: min-content;
   border: 2px solid var(--themes-main-color, #000);
   background: var(--themes-background, #FFF);
   line-height: 90%;
   font-family: var(--accent-font-family);
 }
 
-#dialog-id {
+.dialog {
+  position: fixed;
+  z-index: 2;
+  top: 50%;
+  left: 17px;
+  right: 17px;
   padding: 30px 40px;
+  transform: translateY(-50%);
   background-color: var(--themes-background);
   border: 2px solid var(--themes-main-color);
-  margin: 0 auto;
-  max-width: 341px;
-  max-height: 195px;
-  position: fixed;
-  top: 30%;
+  /* max-width: 357px;
+  max-height: 195px; */
 }
 
-#dialog-id::backdrop {
-  background-color: rgb(0 0 0 / 1);
+.dialog::backdrop {
+  content: '';
+  background-color: rgb(0 0 0 / .3);
   backdrop-filter: blur(7px);
 }
 
 .dialog__icon {
-  height: 100px;
-  width: 100px;
+  height: 39px;
+  width: 39px;
 }
 
 .dialog__text {
@@ -298,11 +337,29 @@ button {
   padding: 9px 17px;
 }
 
-@media (min-width: 1440px) {
+
+
+
+@media(min-width: 576px) {
+  .footer-button {
+    flex-wrap: nowrap;
+  }
+
+  .icon {
+    width: 21px;
+    height: 21px;
+  }
+}
+
+@media (min-width: 768px) {
   .card-menu__list {
     gap: 54px;
   }
   .card__label {
     right: 25px;
   }
+}
+
+.d-none {
+  display: none;
 }
