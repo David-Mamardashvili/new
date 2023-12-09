@@ -50,14 +50,11 @@ button {
   content: '';
   inset: 0;
   background-color: var(--themes-main-color);
-  /* transform: scaleX(0); */
-  /* transform-origin: left center; */
   transform: translateX(-100%);
   transition: transform .5s ease-in-out;
 }
 
 .blend-btn:hover::before {
-  /* transform: scaleX(1); */
   transform: translateX(0);
 }
 
@@ -191,7 +188,6 @@ button {
   line-height: 90%;
   font-family: var(--accent-font-family);
   font-size: 14px;
-
 }
 
 .card__preview {
@@ -292,29 +288,33 @@ button {
 .dialog {
   position: fixed;
   z-index: 2;
-  top: 50%;
   left: 17px;
   right: 17px;
   padding: 30px 40px;
-  transform: translateY(-50%);
   background-color: var(--themes-background);
   border: 2px solid var(--themes-main-color);
-  /* max-width: 357px;
-  max-height: 195px; */
+  max-width: 357px;
+  max-height: 195px;
+  overflow-y: hidden;
 }
 
 .dialog::backdrop {
-  content: '';
-  background-color: rgb(0 0 0 / .3);
-  backdrop-filter: blur(7px);
+  background-color: rgb(0 0 0 / .8);
 }
 
 .dialog__icon {
+  flex-shrink: 0;
   height: 39px;
   width: 39px;
 }
 
+.dialog__title {
+  display: flex;
+  gap:20px;
+}
+
 .dialog__text {
+  flex-shrink: 2;
   line-height: 150%;
   font-family: var(--accent-font-family);
   font-size: 14px;
@@ -325,10 +325,7 @@ button {
 .dialog__button-section {
   display: flex;
   flex-direction: column;
-}
-
-.dialog__title {
-  display: flex;
+  gap: 30px;
 }
 
 .dialog__button {
@@ -337,8 +334,9 @@ button {
   padding: 9px 17px;
 }
 
-
-
+.OK__button {
+  color: var(--themes-main-color);
+}
 
 @media(min-width: 576px) {
   .footer-button {
