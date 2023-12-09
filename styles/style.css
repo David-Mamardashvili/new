@@ -186,7 +186,7 @@ button {
   font-size: 14px;
   text-shadow:
   -1px 0 var(--themes-background), 
-  0 1px var(--themes-background), 
+  0 1px var(--themes-background),  
   1px 0 var(--themes-background), 
   0 -1px var(--themes-background);
 }
